@@ -1,0 +1,15 @@
+﻿  Resultats.cpp
+  Principal.cpp
+  Musica.cpp
+  Joc.cpp
+c:\users\usuario\documents\archnoid_c\archnoid\joc.cpp(11): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\usuario\documents\archnoid_c\archnoid\joc.cpp(70): warning C4309: 'argumento': truncamiento de valor constante
+c:\users\usuario\documents\archnoid_c\archnoid\joc.cpp(87): warning C4309: 'argumento': truncamiento de valor constante
+c:\users\usuario\documents\archnoid_c\archnoid\joc.cpp(89): warning C4309: 'argumento': truncamiento de valor constante
+c:\users\usuario\documents\archnoid_c\archnoid\joc.cpp(95): warning C4309: 'argumento': truncamiento de valor constante
+c:\users\usuario\documents\archnoid_c\archnoid\joc.cpp(100): warning C4309: 'argumento': truncamiento de valor constante
+  Graphics_Console.cpp
+c:\users\usuario\documents\archnoid_c\archnoid\graphics_console.cpp(5): warning C4838: la conversión de 'int' en 'SHORT' requiere una conversión de restricción
+  Configurar.cpp
+  Generando código...
+  Archnoid.vcxproj -> C:\Users\usuario\Documents\Archnoid_C\Archnoid\Debug\Archnoid.exe
