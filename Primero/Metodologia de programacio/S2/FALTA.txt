@@ -1,0 +1,6 @@
+FUNCIONS:
+figuraEncaixada TOT
+pintaFons Revisar si esta be, no ho se segur.
+moureFig Revisar si esta be, tampoc ho se segur.
+
+Revisar si tot lo demés es correcte.
