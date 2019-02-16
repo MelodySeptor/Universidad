@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <semaphore.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
+#include <string.h>
+#include <fcntl.h>
+
+#define LONG_PIPE 2
+#define MAX_HIJOS 52
+#define ERROR -1
+
+int main(int arc, char**arv[]){
+	int pipePaH[LONG_PIPE];
+	int pipeHaR[LONG_PIPE];
+	int pidPadre=getpid();
+	int pidResultados=0;
+	int pidHijos[MAX_HIJOS];
+	int arrayHijosComprobar[MAX_HIJOS];
+
+	sem_t mutex;
+	sem_init(&mutex,1,1);
+	int i=0;
+	//NATEJA ARRAY HIJOS
+	for(i=0;i<MAX_HIJOS;i++){
+		arrayHijosComprobar[i]=1;
+	}
+
+	//CREAR PIPE
+	if(pipe(pipePaH)==ERROR){
+		write(1,"Error ma boy",12);
+	}
+	if(pipe(pipeHaR)==ERROR){
+		write(1,"Error ma boy",12);
+	}
+
+	//CREA FILLS
+	for(i=0;i<MAX_HIJOS;i++){
+		pidHijos[i]=fork();
+		if(pidHijos[i]==0){
+			//INCIO ORDENES HIJO
+			printf("%d\n",i);
+			arrayHijosComprobar[i]=1;
+			//FI ORDENES HIJO
+			exit(0);
+		}
+		else if (pidHijos[i]==ERROR){
+			write(1,"Error ma boy",12);
+		}
+	}
+
+	//PARE ESPERA FILLS
+	if(getpid()==pidPadre){
+		char proba[100]= "Hola querido Hijo\n";
+		int controlHijos=1;
+
+		while(controlHijos){
+			
+for(j=0;j<MAX_HIJOS;j++){
+			}
+		}
+		write(1,&proba,strlen(proba));
+	}
+}
+
