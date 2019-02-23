@@ -1,0 +1,98 @@
+#initFormIndex{
+	color: black;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#initFormOperari{
+	color: black;
+    width: 300px;
+    margin: 0 auto;	
+}
+
+#changeRight{
+	float:right;
+}
+
+#changeLeft{
+	float:left;
+}
+
+#tittle{
+	/*position: absolute;*/
+	top:10px;
+	text-align:center;
+	font-style:inherit;	
+}
+
+#loginName{
+	position: absolute;
+	top:75px;
+}
+
+#loginPassword{
+	position: absolute;
+	top:110px;	
+}
+
+#button{
+	position: absolute;
+	align-items:center;
+	align-self:center;
+	top:155px;
+}
+
+#errorFormMessage{
+	position: absolute;
+	top:190px;
+	color: red;
+}
+
+#userFormName{
+	position: absolute;
+	top:75px;
+}
+
+#userFormDespl1{
+	position: absolute;
+	top:110px;	
+}
+
+#userFormDespl2{
+	position: absolute;
+	top:150px;	
+}
+
+#buttonUser{
+	position: absolute;
+	align-items:center;
+	align-self:center;
+	top:190px;	
+}
+
+#xatForm{
+	color: black;
+    width: 300px;
+    margin: 0 auto;	
+}
+
+#inText {
+	color: black;
+    width: 400px;
+    margin: 0 auto;	
+    position:absolute;
+    top: 65%;
+	left: 230px;    
+}
+
+#sendButton{
+	color: black;
+    top: 1900px;
+	left: 730px;    
+}
+
+#usersOnlineArea{
+	/*position: absolute;*/
+	top:100px;
+	right:100px;	
+}

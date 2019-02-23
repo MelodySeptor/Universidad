@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+<title>Peer-To-Peer chat :)</title>
+</h:head>
+
+<body>
+<h:form id="initFormOperari">
+	<div id="tittle">
+		<h2><h:outputText value="Please Sign up"></h:outputText></h2>
+	</div>
+
+	<div id="loginName">
+		<h:outputText value="Name: "></h:outputText>
+		<h:inputText id ="username" value="#{operatorLoginBean.login}" a:placeholder="username">
+			<f:validateRequired for="username" required="true"></f:validateRequired>
+		</h:inputText>
+		<h:message for = "username" style = "color:red"/>
+	</div>
+	<div id="loginPassword">
+		<h:outputText value="Password: "></h:outputText>
+		<h:inputSecret id="password" value="#{operatorLoginBean.password}" a:placeholder="password">
+			<f:validateRequired for="password" required="true"></f:validateRequired>
+		</h:inputSecret>
+		<h:message for = "password" style = "color:red" value="Error: no password" />
+	</div>
+	<div id = "button">		
+		<h:commandButton id="validateButton" value="Sign in" action="#{operatorLoginController.verifyUser()}">
+		</h:commandButton>
+	</div>
+	
+	<div id="errorFormMessage">
+			<h:outputText  id ="errorMessage" value="ERROR: Invalid user" rendered="#{operatorLoginBean.tryConnected == 'true'}"></h:outputText>
+	</div>
+</h:form>
+	
+</body>
+
+</html>

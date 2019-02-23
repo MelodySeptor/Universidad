@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+<title>Peer-To-Peer chat :)</title>
+</h:head>
+
+<body>
+<h:form id="initFormIndex">
+	<div>
+		<h2><h:outputText id="tittle" value="User acces"></h:outputText></h2>
+	</div>
+	
+	<div id="userFormName">
+		<h:outputText value="Nombre: "></h:outputText>
+		<h:inputText id ="inputName" value="#{userLoginBean.name}" a:placeholder="username">
+			<f:ajax event="keyup" execute="inputName" render="buttonUser"></f:ajax>
+		</h:inputText>
+	</div>
+	
+	<div id="userFormDespl1">
+		<h:selectOneMenu value="#{userLoginBean.selectedCategory}" immediate="true" valueChangeListener="#{userLoginController.categoryChanged}">
+			<f:selectItems value="#{userLoginController.getCategories()}"></f:selectItems>
+			<f:ajax render="menu2"></f:ajax>
+		</h:selectOneMenu>
+	</div>
+	
+	<div id="userFormDespl2">
+		<h:selectOneMenu id="menu2" value="#{userLoginBean.selectedSubCategory}" >
+			<f:selectItems value="#{userLoginController.getSubCategories()}"></f:selectItems>
+		</h:selectOneMenu>
+	</div>
+	
+	<div id="buttonUser">
+		<h:commandButton id="buttonUser" value="Connect" action="#{userLoginController.createConversation()}" disabled="#{empty userLoginBean.name}"></h:commandButton>
+	</div>
+	
+</h:form>
+	
+</body>
+
+</html>

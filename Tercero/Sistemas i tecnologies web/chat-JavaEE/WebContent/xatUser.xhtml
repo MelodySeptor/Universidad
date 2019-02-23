@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+	<title>Peer-To-Peer chat :)</title>
+	<h:outputScript name="js/websockets.js"></h:outputScript>
+</h:head>
+
+<body>
+<h:form id="xatForm" prependId="false" >
+	<div id="xatArea">
+		<h3><h:outputText value="Active Xat"></h:outputText></h3>
+		<br/>
+		<textarea id ="outText" rows="20" cols="50">
+			<h:outputText value="#{showner.conversationsManager.getConvForWeb(userLoginBean.conversationId)}"/>
+		</textarea>
+		<br/>
+		<br/>
+		<br/>
+		<h:commandButton value="Send" onclick="sendChatMessage();">
+			<f:ajax render="xatForm"></f:ajax>
+			<f:ajax render="inText"></f:ajax>
+		</h:commandButton>
+		<br/>
+	</div>
+	<!-- Hola -->
+	<h:inputHidden id="channelId" value="#{userLoginBean.conversationId}"> </h:inputHidden>
+	<h:commandButton id="hidd" style='visibility:hidden'>
+			<f:ajax render="xatForm"></f:ajax>
+	</h:commandButton>
+</h:form>
+		<textarea id ="inText" rows="10" cols="50"></textarea>
+
+</body>
+
+</html>

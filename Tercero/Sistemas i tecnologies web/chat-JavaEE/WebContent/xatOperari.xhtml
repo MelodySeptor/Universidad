@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<h:outputStylesheet name="css/styles.css"></h:outputStylesheet>
+<title>Peer-To-Peer chat :)</title>
+<h:outputScript name="js/websockets.js"></h:outputScript>
+
+</h:head>
+
+<body>
+<h:form id="xatForm" rendered="#{operatorLoginBean.logged=='true'}" prependId="false">
+	<div id="xatArea">
+	
+		<div id="changeRight">
+			<h3><h:outputText value="Active Xat"></h:outputText></h3>
+			<ui:repeat var="q" value="#{showner.getListUsers(operatorLoginBean.operatorId)}">
+				<h:commandLink value="#{q}" action="#{showner.changeConv(operatorLoginBean.operatorId, q)}"> 
+					<f:ajax render="xatForm"></f:ajax>
+				</h:commandLink>
+				<br/>
+			</ui:repeat>
+		</div>
+		
+		
+		<br/>
+		<br/>
+		<div id="changeLeft">
+			<textarea id ="outText" rows="20" cols="50">
+				<h:outputText value="#{showner.conversationsManager.getConvForWeb(operatorLoginBean.operatorId)}"/>
+			</textarea>
+			<h:commandButton id="sendbutton" value="Send" onclick="sendChatMessage();">
+				<f:ajax render="xatForm"></f:ajax>
+				<f:ajax render="inText"></f:ajax>
+			</h:commandButton>
+			
+			<h:commandButton id="hidd" style='visibility:hidden'>
+				<f:ajax render="xatForm"></f:ajax>
+			</h:commandButton>
+			<br/>
+		</div>
+	</div>
+	
+	<div id="usersOnlineArea">
+		<h:outputText value="Active Users" cols="20" rows="50"></h:outputText>
+		<!-- Faltan asignar los valores que no se puede hasta que internamente este hecho  -->
+		<ui:repeat var="q" >
+		</ui:repeat>
+	</div>
+	<h:inputHidden id="channelId" value="#{operatorLoginBean.operatorId}"> </h:inputHidden>
+</h:form>
+		<textarea id ="inText" rows="10" cols="50"></textarea>
+
+<h:form id="xatFormError" rendered="#{operatorLoginBean.logged=='false'}">
+	<h:outputText value="ERROR, please sign in."></h:outputText>
+	<h:commandLink value="Return to home." action="index.xhtml"></h:commandLink>
+</h:form>	
+</body>
+
+</html>
