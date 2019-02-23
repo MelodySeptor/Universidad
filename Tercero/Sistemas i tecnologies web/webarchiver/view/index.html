@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Archiver Crawler</title>
+		</head>
+		<body>
+			<h1>Specift URL to be Downloaded:</h1>
+			<form id="crawlerForm" method="post" action="/crawler">
+				<label for="URL">URL </label>
+				<input type="text" id="url" name="url"> <br/>
+				
+				<label for="recLevel">recLevel </label> 
+				<input type="number" id="recLevel" name="recLevel"> <br/>
+				
+				<label for="maxFiles">maxFiles </label> 
+				<input type="number" id="maxFiles" name="maxFiles"> <br/>
+				
+				<button type="sumbit">Download</button>
+				<button>Clean</button>
+			</form>
+		</body>
+	</html>
